@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Регистрация — ClimateHero{% endblock %}
+
+{% block extra_style %}
+<style>
+  .auth-wrap {
+    max-width: 480px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+  }
+  .auth-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2.5rem;
+  }
+  .auth-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.4rem;
+  }
+  .auth-sub { color: #a7f3d0; font-size: 0.9rem; margin-bottom: 2rem; }
+  .field { margin-bottom: 1.2rem; }
+  .field label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #a7f3d0;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.3px;
+  }
+  .field input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+  }
+  .field input:focus { border-color: var(--leaf); }
+  .field input::placeholder { color: rgba(255,255,255,0.3); }
+  .field .hint { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; }
+  .submit-btn {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    margin-top: 0.5rem;
+  }
+  .auth-footer { text-align: center; margin-top: 1.5rem; color: var(--muted); font-size: 0.9rem; }
+  .auth-footer a { color: var(--leaf); font-weight: 700; text-decoration: none; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-title">Создать аккаунт 🌱</div>
+    <div class="auth-sub">Присоединись к защитникам планеты — это займёт минуту</div>
+
+    <form method="POST">
+      <div class="field">
+        <label>Твоё имя</label>
+        <input type="text" name="name" placeholder="Например: Маша" required>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="твой@email.com" required>
+      </div>
+      <div class="field">
+        <label>Дата рождения</label>
+        <input type="date" name="birthdate" required>
+        <div class="hint">Используется для подбора советов по возрасту</div>
+      </div>
+      <div class="field">
+        <label>Пароль</label>
+        <input type="password" name="password" placeholder="Минимум 6 символов" required>
+      </div>
+      <div class="field">
+        <label>Повтори пароль</label>
+        <input type="password" name="password2" placeholder="Ещё раз" required>
+      </div>
+      <button type="submit" class="btn btn-primary submit-btn">Зарегистрироваться 🌍</button>
+    </form>
+
+    <div class="auth-footer">
+      Уже есть аккаунт? <a href="/login">Войти</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
