@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% block title %}ClimateHero — Защити планету{% endblock %}
+
+{% block extra_style %}
+<style>
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(82,183,136,0.15);
+    border: 1px solid var(--leaf);
+    color: var(--sky);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+  .hero h1 .accent { color: var(--sky); }
+  .hero h1 .accent2 { color: var(--sun); }
+  .hero p {
+    font-size: 1.15rem;
+    color: #a7f3d0;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+  .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-big { padding: 0.85rem 2rem; font-size: 1rem; }
+
+  .facts {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  .fact-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.8rem;
+    transition: transform 0.2s;
+  }
+  .fact-card:hover { transform: translateY(-4px); }
+  .fact-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--sun);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .fact-label { color: #a7f3d0; font-weight: 600; font-size: 0.95rem; }
+  .fact-desc { color: var(--muted); font-size: 0.85rem; margin-top: 0.4rem; line-height: 1.5; }
+
+  .about {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .about h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  .about p { color: #a7f3d0; line-height: 1.8; margin-bottom: 1rem; }
+
+  .steps {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.4rem 1.8rem;
+  }
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--leaf);
+    min-width: 40px;
+  }
+  .step-text h3 { color: white; font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .step-text p { color: #a7f3d0; font-size: 0.9rem; line-height: 1.5; }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-badge">🌡️ Глобальное потепление — реально</div>
+  <h1>Узнай как <span class="accent">спасти</span> нашу<br><span class="accent2">планету</span> прямо сейчас</h1>
+  <p>Сайт для всех — от школьников до взрослых. Получи персональный список действий, подобранный специально под твой возраст.</p>
+  <div class="hero-buttons">
+    <a href="/register" class="btn btn-primary btn-big">Начать — это бесплатно 🌱</a>
+    <a href="#about" class="btn btn-outline btn-big">Узнать больше</a>
+  </div>
+</section>
+
+<section class="facts">
+  <div class="fact-card">
+    <div class="fact-num">+1.2°C</div>
+    <div class="fact-label">Потепление с 1880 года</div>
+    <div class="fact-desc">Температура на Земле выросла за 140 лет — в основном из-за сжигания нефти и угля</div>
+  </div>
+  <div class="fact-card">
+    <div class="fact-num">8 млрд</div>
+    <div class="fact-label">Людей на планете</div>
+    <div class="fact-desc">Каждый может изменить ситуацию. Даже небольшие действия в масштабе миллиардов — огромная сила</div>
+  </div>
+  <div class="fact-card">
+    <div class="fact-num">2050</div>
+    <div class="fact-label">Цель: нейтральный CO₂</div>
+    <div class="fact-desc">Мировые лидеры договорились достичь углеродной нейтральности к 2050 году</div>
+  </div>
+  <div class="fact-card">
+    <div class="fact-num">10 лет</div>
+    <div class="fact-label">Критическое окно</div>
+    <div class="fact-desc">Учёные говорят: у нас есть 10 лет, чтобы принять решительные меры. Начать нужно сейчас</div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2>Что такое глобальное потепление? 🌡️</h2>
+  <p>Земля окружена атмосферой — как одеялом. Парниковые газы (CO₂, метан) задерживают тепло. Из-за заводов, машин и вырубки лесов этих газов становится всё больше — и «одеяло» толстеет.</p>
+  <p>Результат: тают ледники, поднимается уровень моря, учащаются ураганы и засухи. Это уже происходит — но мы ещё можем это остановить.</p>
+</section>
+
+<div class="section-title">Как работает ClimateHero?</div>
+<div class="steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-text">
+      <h3>Зарегистрируйся и укажи дату рождения</h3>
+      <p>Всё безопасно — пароль шифруется, данные хранятся только на твоём сервере</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-text">
+      <h3>Получи персональный список действий</h3>
+      <p>Система учитывает твой возраст и подбирает реальные, выполнимые шаги — именно для тебя</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-text">
+      <h3>Действуй и рассказывай другим</h3>
+      <p>Поделись сайтом с друзьями — каждый новый человек = больше пользы для планеты 🌍</p>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:3rem 2rem;">
+  <a href="/register" class="btn btn-primary btn-big">Узнать мои советы 🌿</a>
+</div>
+{% endblock %}
